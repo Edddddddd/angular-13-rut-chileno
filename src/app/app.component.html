@@ -1,0 +1,28 @@
+<rut-chile [mode]="2" (rut_emiter)="getRut($any($event))"></rut-chile>
+<p>{{rut}}</p>
+
+<div>
+  
+    <form ngNativeValidate (ngSubmit)= 'save()' [formGroup]= "form">
+      <div class= 'form-group'>
+      <br>
+      Nombre:<input id="name" class='form-control' type="text" formControlName= "firstname" required><br>
+      Rut:<input id="rut" class='form-control' type="text" 
+      (input)="inputEvent($event)" 
+
+      formControlName= "rut" required><br>
+          
+    </div>
+      
+  
+      <span *ngIf= "form.get('rut')?.errors?.['rutnovalido']">El rut no es valido</span><br>
+  
+      <button class="btn btn-primary">Submit</button>
+  
+    
+    </form>
+    <p>
+      {{formValid}}
+    </p>
+
+</div>

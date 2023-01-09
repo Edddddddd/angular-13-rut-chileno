@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { RutService } from 'projects/rut/src/public-api';
+import { RutService } from 'projects/rut-chileno/src/public-api';
 
 export class Customer{
   firstname!: string;

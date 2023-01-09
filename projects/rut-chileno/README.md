@@ -215,6 +215,16 @@ En el html de tu componente puedes utilizar el siguiente tag "rut-chile":
 ```html
 <rut-chile [msjError]="El rut ingresado no es válido." [mode]="0" (rut_emiter)="getRut($event)"></rut-chile>
 ```
+Se añadio la variable para definir si este caso es obligatorio el uso del rut por defecto su valor es falso
+ejemplo:
+
+```html
+<rut-chile [obligatorio]="true" [msjError]="El rut ingresado no es válido." [mode]="0" (rut_emiter)="getRut($event)"></rut-chile>
+```
+
+Esta funcion aun no es compatible con los formularios reactivos.
+
+
 La variable "mode" corresponde al formato en que sera utilizado el rut para esto puede devolver los siguiente formatos segun el valor que corresponda.
 
  - mode = 0 -> 184215551

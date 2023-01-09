@@ -20,9 +20,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class RutComponent implements OnInit {
 
-  @Output() rut_emiter = new EventEmitter<string | number>();
+  @Output() rut_emiter = new EventEmitter<string | number | undefined | null >();
   @Input() mode!: number;
   @Input() msjError!: string;
+  @Input() obligatorio: boolean = false;
 
   validacionRut!: boolean;
   rut_chileno!: string;
@@ -32,9 +33,20 @@ export class RutComponent implements OnInit {
 
   ngOnInit(): void {
     if(!this.msjError)
-      this.msjE = "El rut ingresado no es válido.";
+      this.msjE = "El rut ingresado no es válido.    GJHGHG";
     else
       this.msjE = this.msjError;
+  }
+
+  isRutObligatorio() : void  {
+    if (!this.obligatorio) {
+      this.validacionRut = false;
+      this.rut_emiter.emit(undefined);
+    }   
+  }
+
+  isRutEmpy(rut: string) : boolean {
+    return rut ==='' || rut === null || rut === undefined;
   }
 
   rutFormat(event: Event): void {
@@ -49,8 +61,9 @@ export class RutComponent implements OnInit {
     for (let i = 4; i < rut.length; i += 3) {
       result = `${rut.slice(-3 - i, -i)}.${result}`;
     }
-    
-    this.rut_chileno = result;
+
+    this.rut_chileno = result;    
+    if (this.isRutEmpy(target.value)) this.isRutObligatorio();
   }
 
   rutClean(value: string): string {
@@ -59,9 +72,9 @@ export class RutComponent implements OnInit {
   
   validaRUT(event: Event): void {
     const target = event.target as HTMLInputElement;
-
     this.validacionRut = this.validaRUT_(target.value);
     this.sendEmiterRut(this.rut_chileno);
+    if (this.isRutEmpy(target.value)) this.isRutObligatorio();
   }
 
   validaRUT_(rut: string): boolean {
@@ -120,6 +133,8 @@ export class RutComponent implements OnInit {
           this.rut_emiter.emit(this.rutClean(ru).slice(-1).toUpperCase());
           break;    
       }
+    } else {
+      this.rut_emiter.emit(undefined);
     }
       
   }

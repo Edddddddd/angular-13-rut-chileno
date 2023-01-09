@@ -194,4 +194,8 @@ export class RutService {
       
   }
 
+  isRutEmpy(rut: string) : boolean {
+    return rut ==='' || rut === null || rut === undefined;
+  }
+
 }

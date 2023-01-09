@@ -1,6 +1,6 @@
 {
   "name": "rut-chileno",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "author": "Eddddddd",
   "license": "ISC",
   "keywords": [
@@ -9,17 +9,16 @@
       "chile",
       "validaor",
       "run",
+      "rol",
+      "chile-rut",
       "identidad",
       "cedula",
       "wea",
-      "weon",
-      "wn",
-      "el wn wn po wn",
       "angular"
   ],
   "repository": {
       "type": "git",
-      "url": "git+https://github.com/Edddddddd/rut-chileno.git"
+      "url": "git+https://github.com/Edddddddd/angular-13-rut-chileno.git"
   },
   "peerDependencies": {
     "@angular/common": "^13.3.0",
@@ -29,7 +28,7 @@
     "tslib": "^2.3.0"
   },
   "bugs": {
-      "url": "https://github.com/Edddddddd/rut-chileno/issues"
+      "url": "https://github.com/Edddddddd/angular-13-rut-chileno/issues"
   },
-  "homepage": "https://github.com/Edddddddd/rut-chileno#readme"
+  "homepage": "https://github.com/Edddddddd/angular-13-rut-chileno#readme"
 }

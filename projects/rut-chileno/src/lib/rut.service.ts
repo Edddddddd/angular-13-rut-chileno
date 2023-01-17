@@ -162,9 +162,6 @@ export class RutService {
       dv = dv === '0' ? '11' : dv;
     
       // Validar que el Cuerpo coincide con su Dígito Verificador
-      console.log(dvEsperado);
-      console.log(dv);
-      console.log(dvEsperado.toString() !== dv)
       if (dvEsperado.toString() !== dv && cuerpo.length >= 0) {
         return {
           rutnovalido: true

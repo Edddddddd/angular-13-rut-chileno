@@ -113,13 +113,11 @@ export class RutService {
   }
 
 
-  validaRutForm(control: AbstractControl): { [key: string]: boolean } {
+  validaRutForm(control: AbstractControl): { [key: string]: boolean } | null {
     
-    if (control.value == null && control.value === 'undefined') {
+    if (control.value == null || control.value === 'undefined' || control.value === "" ) {
       // TODO: RETORNA TRUE YA QUE LA IDEA ES USAR Validators.required
-      return {
-        rutnovalido: true
-      };
+      return null;
     } else {
 
       let rut: string = control.value;
@@ -133,7 +131,7 @@ export class RutService {
       // Si no cumple con el mínimo ej. (n.nnn.nnn)
       if (cuerpo.length < 7 && cuerpo.length >= 0) {
         return {
-          rutnovalido: false
+          rutnovalido: true
         };
       }
     
@@ -170,9 +168,7 @@ export class RutService {
           rutnovalido: true
         };
       } else {
-        return {
-          rutnovalido: false
-        };
+        return null;
       }
     }
 

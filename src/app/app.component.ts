@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
       rut: ["", [Validators.required, this.rutService.validaRutForm]],
     });
 
-
   }
 
   inputEvent(event : Event) {
@@ -51,8 +50,10 @@ export class AppComponent implements OnInit {
     console.log(this.form)
     if (this.form.valid) {
       this.formValid = "Form valid ";
+    } else {
+      this.formValid = "";
     }
-    console.log(this.form.value);
+    console.log(this.form.valid);
   }
   
   getRut(event: Event): void {

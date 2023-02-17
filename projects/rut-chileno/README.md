@@ -173,7 +173,7 @@ Importante tener encuenta la siguiente validación para que el campo se auto com
 
 Con esto la implementación deberia funcionar correctamente 
 
-Tambien puedes revisar el ejemplo completo en [StackBliz](https://github.com/angular/angular-cli)
+Tambien puedes revisar el ejemplo completo en [StackBlitz](https://github.com/angular/angular-cli)
 
 
 

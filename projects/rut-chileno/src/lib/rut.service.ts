@@ -113,10 +113,13 @@ export class RutService {
   }
 
 
-  validaRutForm(control: AbstractControl): { [key: string]: boolean } | null {
+  validaRutForm(control: AbstractControl): { [key: string]: boolean } {
     
     if (control.value == null && control.value === 'undefined') {
-      return null
+      // TODO: RETORNA TRUE YA QUE LA IDEA ES USAR Validators.required
+      return {
+        rutnovalido: true
+      };
     } else {
 
       let rut: string = control.value;
@@ -167,7 +170,9 @@ export class RutService {
           rutnovalido: true
         };
       } else {
-        return null;
+        return {
+          rutnovalido: false
+        };
       }
     }
 

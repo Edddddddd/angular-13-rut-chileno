@@ -7,8 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   [(ngModel)] = "rut_chileno"
   (focus)="rutFormat($event)"
   (keydown)="rutFormat($event)"
-  (keyup)="rutFormat($event)"
-  (keypress)="validaRUT($event)"
+  (keypress)="rutFormat($event)"
+  (keyup)="validaRUT($event)"
   (blur)="validaRUT($event)"
   class="input-rut rut" name="username" id="rut_chileno" placeholder="Rut">
   <small class="danger-rut" [hidden]="!validacionRut">
@@ -33,7 +33,7 @@ export class RutComponent implements OnInit {
 
   ngOnInit(): void {
     if(!this.msjError)
-      this.msjE = "El rut ingresado no es válido.    GJHGHG";
+      this.msjE = "El rut ingresado no es válido.";
     else
       this.msjE = this.msjError;
   }
@@ -73,6 +73,7 @@ export class RutComponent implements OnInit {
   validaRUT(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.validacionRut = this.validaRUT_(target.value);
+    this.rutFormat(event);
     this.sendEmiterRut(this.rut_chileno);
     if (this.isRutEmpy(target.value)) this.isRutObligatorio();
   }

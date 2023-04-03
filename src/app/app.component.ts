@@ -57,7 +57,6 @@ export class AppComponent implements OnInit {
   }
   
   getRut(event: Event): void {
-    console.log(event) 
     if(event)
       this.rut = event;
   }

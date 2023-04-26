@@ -339,10 +339,11 @@ export class AppComponent {
   }
 
  ```
- La funcion "clearInputButton()" puede ser llamado desde el lugar que usted desee
- el service "rutService" emite un booleano en este caso "true para limpiar el input
+ La funcion "clearInputButton()" puede ser llamado desde el lugar que usted desee.
 
- Se agradece la observación y la ayuda en la implementación al desarrollador
+ El service "rutService" emite en la funcion "clearInputService" un booleano, en este caso "true" para limpiar el input.
+
+ Se agradece la colaboracion en la implementación de este cambio al desarrollador
 
  [Fernando Riffo](https://github.com/FernandoRiffo)
 

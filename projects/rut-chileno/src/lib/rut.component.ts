@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
+import { RutService } from './rut.service';
 
 @Component({
   selector: 'rut-chile',
@@ -29,9 +31,16 @@ export class RutComponent implements OnInit {
   rut_chileno!: string;
   msjE!:string;
 
-  constructor() { }
+  constructor(private rutService :RutService) { }
 
   ngOnInit(): void {
+    this.rutService.events$.forEach(event => {
+      if (event) {
+        this.rut_chileno = '';
+        this.rut_emiter.emit(this.rut_chileno);
+      }
+    });
+
     if(!this.msjError)
       this.msjE = "El rut ingresado no es válido.";
     else

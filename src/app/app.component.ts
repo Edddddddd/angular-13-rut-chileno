@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RutService } from 'projects/rut-chileno/src/public-api';
+import { Subject } from 'rxjs';
 
 export class Customer{
   firstname!: string;
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
   formValid !:string;
   form!: FormGroup;
   customer = new Customer();
+  clearBoolean!:Subject<boolean | false> ;
 
   constructor(private fb: FormBuilder, 
     private rutService: RutService ) {}
@@ -60,4 +62,9 @@ export class AppComponent implements OnInit {
     if(event)
       this.rut = event;
   }
+
+  clearInputButton() : void {
+    this.rutService.clearInputService(true);
+  }
+
 }

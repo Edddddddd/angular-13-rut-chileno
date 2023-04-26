@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RutService {
+  private _subject = new Subject<any>();
 
   constructor() { }
 
+  clearInputService(event: any) {
+    this._subject.next(event);
+  }
+
+  get events$ () {
+    return this._subject.asObservable();
+  }
 
   rutFormat(value: string): string | undefined {
     const rut: string = this.rutClean(value);

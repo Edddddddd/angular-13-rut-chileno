@@ -1,5 +1,6 @@
 <rut-chile [obligatorio]="false" [mode]="2" (rut_emiter)="getRut($any($event))"></rut-chile>
 <p>{{rut}}</p>
+<button class="btn btn-primary" (click)="clearInputButton()">Limpiar</button>
 
 <div>
   

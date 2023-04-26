@@ -329,3 +329,21 @@ export class AppComponent {
 ```
 
 
+ #### Se incluye una nuava funcion para hacer limpiar el campo
+ Su implementacion es la siguiente 
+
+ ```ts
+
+  clearInputButton() : void {
+    this.rutService.clearInputService(true);
+  }
+
+ ```
+ La funcion "clearInputButton()" puede ser llamado desde el lugar que usted desee
+ el service "rutService" emite un booleano en este caso "true para limpiar el input
+
+ Se agradece la observación y la ayuda en la implementación al desarrollador
+
+ [Fernando Riffo](https://github.com/FernandoRiffo)
+
+ Muchas gracias compa!
